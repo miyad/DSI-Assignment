@@ -12,7 +12,7 @@ public class NormalVehicle {
 
     public String toString(){
         // print the details
-        return "model: "+this.modelNumber+", Engine type: "+this.engineType+", power: "+this.enginePower+", tireSize: "+this.tireSize;
+        return this.getClass().getName()+", model: "+this.modelNumber+", Engine type: "+this.engineType+", power: "+this.enginePower+", tireSize: "+this.tireSize;
     }
 
 }

@@ -1,9 +1,9 @@
 import java.util.Scanner;
 
 public class Main {
+
     public static void main(String[] args){
-       NormalVehicle normalVehicle = new NormalVehicle("x1","oil",234,23);
-        System.out.println(normalVehicle);
+        VehicleShowroom vehicleShowroom = new VehicleShowroom();
         while (true){
             Scanner sc = new Scanner(System.in);
             int option, subOption;
@@ -26,16 +26,71 @@ public class Main {
                 System.out.println();
             }
             if(option==1){
-                System.out.println("option 1 selected");
+                NormalVehicle normalVehicle = null;
+
+                System.out.println("__________Add New Vehicle__________");
+                System.out.println("Select the vehicle type to add: ");
+                System.out.println("1. Normal Vehicle");
+                System.out.println("2. Sports Vehicle");
+                System.out.println("3. Heavy Vehicle");
+
+                System.out.println("Enter vehicle type(1/2/3): ");
+                subOption = sc.nextInt();
+
+                System.out.println("Now, provide descriptions about the vehicle: ");
+                System.out.println("Enter the modelNumber");
+                String model = sc.next();
+
+                System.out.println("Enter the engine power: ");
+                double power = sc.nextDouble();
+
+                System.out.println("Enter the tire size: ");
+                double tireSize = sc.nextDouble();
+
+                if(subOption==1){
+                    System.out.println("Select the engine type: ");
+                    String engine = sc.next();
+                    normalVehicle = new NormalVehicle(model,engine,power,tireSize);
+
+                }
+                if(subOption==2){
+                    System.out.println("Enter turbo name: ");
+                    String turbo = sc.next();
+                    normalVehicle = new SportsVehicle(model,power,tireSize,turbo);
+                }
+                if(subOption==3){
+                    System.out.println("Enter the weight: ");
+                    double weight = sc.nextDouble();
+                    normalVehicle = new HeavyVehicle(model,power,tireSize,weight);
+                }
+
+                if(normalVehicle!=null) {
+                    vehicleShowroom.addVehicle(normalVehicle);
+                }
+                //System.out.println("total vehicle = "+vehicleShowroom.vehicleList.size());
             }
+
             if(option==2){
-                System.out.println("option 2 selected");
+                if(vehicleShowroom.vehicleList.size()==0){
+                    System.err.println("The vechile showroom is empty now. No vehicle can be removed currently!");
+                    continue;
+                }
+                System.out.println("Select Vehicle type to remove: ");
+                System.out.println("1. Normal Vehicle");
+                System.out.println("2. Sports Vehicle");
+                System.out.println("3. Heavy Vehicle");
+                System.out.println("Enter Vehicle type(1/2/3):");
+                subOption  = sc.nextInt();
+                if(subOption==1) vehicleShowroom.removeVehicle("NormalVehicle");
+                if(subOption==2)vehicleShowroom.removeVehicle("SportsVehicle");
+                if(subOption==3)vehicleShowroom.removeVehicle("HeavyVehicle");
             }
+
             if(option==3){
-                System.out.println("option 3 selected");
+                vehicleShowroom.showVehicleListDetails();
             }
             if(option==4){
-                System.out.println("option 4 selected");
+                vehicleShowroom.showListWithExpectedCustomerNo();
             }
             if(option==5){
                 break;
