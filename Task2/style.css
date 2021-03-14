@@ -1,0 +1,38 @@
+body{
+    background-image: url(im1.jpg);
+}
+
+form{
+    position:absolute;
+    margin-top: 10mm;
+    background: transparent;
+    
+    border: red;
+    width: 400px;
+    margin-left: 490;
+    animation-duration: 3;
+    
+}
+
+
+h1{
+    background-color: rebeccapurple;
+    color:yellow;
+    margin-top: 30px;
+}
+
+h2{
+    background:transparent;
+    color:crimson;
+    margin-top: 60px;
+    margin-left: 540px;
+    border: red;
+}
+
+.regref{
+    color:whitesmoke    ;
+    background:transparent;
+    margin-top: 300px;
+    margin-left:600px ;
+}
+
